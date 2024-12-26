@@ -42,7 +42,7 @@ jobs:
       run: echo "Teste de Integraçã no ambiente ${{vars.WEB_NAMESPACE}}"
 
   CD-Producao:
-        needs: [CD-Homolog]
+        needs: [Teste-Ambinte]
         uses: casoftsolutions/multiplos-ambiente/.github/workflows/deploy.yaml@main
         with:
             manifests: k8s/deployment.yaml
