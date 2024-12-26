@@ -26,7 +26,7 @@ jobs:
 
   CD-Homolog:
     needs: [CI]
-    uses: casoftsolutions/multiplos-ambiente/.github/workflows/deploy.yaml@main
+    uses: casoftsolutions/multiplos-ambiente/.github/workflows/deploy.yaml@7f1c015cb61007cfd89a2831657afbbefbbd72d0
     with:
         manifests: k8s/deployment.yaml
         images: cesarags/simple-home-page:v${{ github.run_number }}
@@ -43,7 +43,7 @@ jobs:
 
   CD-Producao:
         needs: [CI]
-        uses: casoftsolutions/multiplos-ambiente/.github/workflows/deploy.yaml@main
+        uses: casoftsolutions/multiplos-ambiente/.github/workflows/deploy.yaml@7f1c015cb61007cfd89a2831657afbbefbbd72d0
         with:
             manifests: k8s/deployment.yaml
             images: cesarags/simple-home-page:v${{ github.run_number }}
