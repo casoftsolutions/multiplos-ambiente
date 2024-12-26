@@ -39,10 +39,10 @@ jobs:
     environment: homologacao
     steps:
     - name: Teste de Integração
-      run: echo "Teste de Integraçã no ambiente ${{vars.WEB_NAMESPACE}}" }}"
+      run: echo "Teste de Integraçã no ambiente ${{vars.WEB_NAMESPACE}}"
 
   CD-Producao:
-        needs: [CI]
+        needs: [CD-Homolog]
         uses: casoftsolutions/multiplos-ambiente/.github/workflows/deploy.yaml@main
         with:
             manifests: k8s/deployment.yaml
