@@ -49,3 +49,15 @@ jobs:
             images: cesarags/simple-home-page:v${{ github.run_number }}
             environment: producao
         secrets: inherit 
+
+
+# Essa Poc usa somente um cluster K8s, porem estou usando namespace para simular ambientes diferentes.
+# Para isso, criei um namespace chamado homologacao e outro chamado producao.
+# Para criar um namespace no K8s, basta executar o comando kubectl create namespace homologacao
+# Para criar um namespace no K8s, basta executar o comando kubectl create namespace producao
+# Para listar os namespaces, basta executar o comando kubectl get namespaces
+# Para listar os pods de um namespace, basta executar o comando kubectl get pods -n homologacao
+
+
+# Em um cenario do mundo real, o ideal é criar 2 cluster separados, um para homologação e outro para produção.
+# Isso evita que um erro em homologação afete a produção.
