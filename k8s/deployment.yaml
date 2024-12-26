@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-home-page
+spec:
+  selector:
+    matchLabels:
+      app: web-home-page
+  template:
+    metadata:
+      labels:
+        app: web-home-page
+    spec:
+      containers:
+      - name: web-home-page
+        image: cesarags/simple-home-page
+        ports:
+        - containerPort: 3000
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-home-page
+spec:
+  selector:
+    app: web-home-page
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer
